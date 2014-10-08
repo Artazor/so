@@ -1,0 +1,45 @@
+{
+  "name": "so",
+  "version": "0.1.0",
+  "description": "So, the most straightforward coroutine library for everyday use",
+  "main": "lib/so.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Artazor/so.git"
+  },
+  "keywords": [
+    "so",
+    "async",
+    "await",
+    "yield",
+    "coroutine",
+    "generators",
+    "harmony",
+    "promise"
+  ],
+  "author": "Anatoly Ressin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Artazor/so/issues"
+  },
+  "homepage": "https://github.com/Artazor/so",
+  "dependencies": {
+    "bluebird": "*",
+    "asap": "*"
+  },
+  "devDependencies": {
+    "istanbul-harmony": "~0.3.0",
+    "make-lint": "^1.0.1",
+    "mocha": "*",
+    "chai": "*",
+    "chai-as-promised": "*"
+  },
+  "files": [
+    "lib",
+    "README.md",
+    "LICENSE"
+  ]
+}
