@@ -6,11 +6,11 @@ So
   [![Test coverage][coveralls-image]][coveralls-url]
 
 The most straightforward co-routine library for Node.JS ever.
-Provides predictable composable async/await (async/yield) style
+Provides predictable composable so/yield (async/await from C#5.0) style
 co-routines for everyday use since you can live in a Harmony.
 
 Inspired by @ForbesLindesay's great presentation: http://pag.forbeslindesay.co.uk/#/
-and @visionmedia `co` (`so` is an alternative to `co` but not the drop-in replacement)
+and @visionmedia [`co`](https://github.com/visionmedia/co) (`so` is an alternative to `co` but not the drop-in replacement)
 
 ## Platform Compatibility
 
@@ -46,6 +46,24 @@ var main = so(function*(){
 main().catch(function(e){
   console.log(e.stack || e.message || e);
 });
+```
+
+or for CoffeeScript
+
+```coffeescript
+so = require 'so'
+fs = require 'then-fs'
+
+readJSON = so (path) -> 
+  JSON.parse yield fs.readFile path, 'utf8'
+
+main = so ->
+  a = yield readJSON 'a.json'
+  b = yield readJSON 'b.json'
+  console.log {a, b}
+
+main().catch (e) ->
+  console.log e.stack ? e.message ? e
 ```
 
 [npm-image]: https://img.shields.io/npm/v/so.svg?style=flat
