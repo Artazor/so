@@ -1,5 +1,5 @@
-So,
-===
+So
+==
 
   [![NPM version][npm-image]][npm-url]
   [![build status][travis-image]][travis-url]
@@ -12,6 +12,14 @@ co-routines for everyday use since you can live in a Harmony.
 Inspired by @ForbesLindesay's great presentation: http://pag.forbeslindesay.co.uk/#/
 and @visionmedia `co` (`so` is an alternative to `co` but not the drop-in replacement)
 
+## Platform Compatibility
+
+  When using node 0.11.x or greater, you must use the `--harmony-generators`
+  flag or just `--harmony` to get access to generators.
+
+  When using node 0.10.x and lower or browsers without generator support,
+  you must use [gnode](https://github.com/TooTallNate/gnode) and/or [regenerator](http://facebook.github.io/regenerator/).
+
 ## Installation
 
 ```
@@ -20,7 +28,7 @@ $ npm install so
 
 ## Usage
 
-```javascript
+```js
 
 var so = require('so');
 var fs = require('then-fs');
