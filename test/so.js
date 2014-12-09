@@ -59,5 +59,9 @@ describe('so', function(){
     it('should be resolved into correct result', function(){
       return foo().should.become('foo');
     });
+    it('should throw when yield a non-promise', function(){
+      var nonpromise = so(function*(){ yield 1; });
+      return nonpromise().should.be.rejectedWith(Error,'Expected Promise');
+    });
   });
 });

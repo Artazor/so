@@ -1,6 +1,6 @@
 {
   "name": "so",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "So, the most straightforward coroutine library for everyday use",
   "main": "lib/so.js",
   "scripts": {
