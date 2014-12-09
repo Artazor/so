@@ -6,8 +6,6 @@ var foo = so(function*(){ return 'foo'; });
 var bar = so(function*(){ return 'bar'; });
 var baz = so(function*(){ throw new Error('Sentinel'); });
 
-var rec = so(function*(n){ return n === 0 ? 0 : 1 + (yield rec(n-1)); });
-
 describe('so', function(){
   it('should return a function',function(){
     foo.should.be.a.Function;
@@ -20,10 +18,6 @@ describe('so', function(){
     });
     return foobar().should.become('foobar');
   });
-  it('should support immediate recursion and be reasonably fast', function(){
-    var n = 10000;
-    return rec(n).should.become(n);
-  });
   it('should preserve `this` context', function(){
     var obj = {
       value: 'baz',
@@ -34,7 +28,7 @@ describe('so', function(){
     return obj.getIt().should.become('baz');
   });
   describe('when used with `throw`', function(){
-    it('should propagate immediate exceptions', function() {
+    it('should propagate immediate exceptions', function(){
       return baz().should.be.rejectedWith(Error,'Sentinel');
     });
     it('should handle nested exceptions with `try/catch`', function(){

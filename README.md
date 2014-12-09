@@ -6,11 +6,13 @@ So
   [![Test coverage][coveralls-image]][coveralls-url]
 
 The most straightforward co-routine library for Node.JS ever.
-Provides predictable composable so/yield (async/await from C#5.0) style
+Provides predictable composable `async/await` from C#5.0 style
 co-routines for everyday use since you can live in a Harmony.
 
 Inspired by @ForbesLindesay's great presentation: http://pag.forbeslindesay.co.uk/#/
-and @visionmedia [`co`](https://github.com/visionmedia/co) (`so` is an alternative to `co` but not the drop-in replacement)
+and @visionmedia [`co`](https://github.com/visionmedia/co).
+As of `co-4.0` that was rewritten to use promises, `so-1.0` can be compared with `co.wrap`
+and represents its more light and strict version.
 
 ## Platform Compatibility
 
@@ -19,6 +21,8 @@ and @visionmedia [`co`](https://github.com/visionmedia/co) (`so` is an alternati
 
   When using node 0.10.x and lower or browsers without generator support,
   you must use [gnode](https://github.com/TooTallNate/gnode) and/or [regenerator](http://facebook.github.io/regenerator/).
+
+  Also as of `so-1.0` you should ensure existence of Promise either by using `--harmony` or any available polyfill.
 
 ## Installation
 
@@ -54,7 +58,7 @@ or for CoffeeScript
 so = require 'so'
 fs = require 'then-fs'
 
-readJSON = so (path) -> 
+readJSON = so (path) ->
   JSON.parse yield fs.readFile path, 'utf8'
 
 main = so ->
